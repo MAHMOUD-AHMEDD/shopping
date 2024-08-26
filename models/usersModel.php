@@ -60,4 +60,9 @@ function update_user($username,$email,$password,$type,$id){
     $stmt->execute();
 
 }
+function delete_user($id){
+    $conn = connectToDB();
+    $data = $conn ->query("DELETE FROM users WHERE id =".$id."");
+    return $data -> fetch();
+}
 

@@ -1,20 +1,20 @@
 <?php
 session_start();
 //include_once 'guard/check_user_login.php';
+include_once 'types/client.php';
+include_once 'types/admin.php';
 
 
-function check_login_admin()
-{
-    if (!(isset($_SESSION['id']))) {
-        header('location:login.php');
+if (!(isset($_SESSION['id']))) {
+     $obj=new client();
+     $obj->type_logic();
     }
-    else{
-        if($_SESSION['type']==='client'){
-            header('location: products.php');
-        }
+else{
+    if ($_SESSION['type']==='client'){
+        $obj=new admin();
+        $obj->type_logic();
     }
 }
-check_login_admin();
 
 
 
@@ -46,7 +46,6 @@ $title = 'Home';
 include_once 'template/header.php';
 ?>
     <div class="container">
-
         <form method="POST" class="m-auto pt-5">
             <div class="row justify-content-center">
                <input type="text" name="name" style="height: fit-content;width: fit-content;">

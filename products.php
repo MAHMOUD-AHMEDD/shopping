@@ -6,14 +6,7 @@ $title='products';
 include_once 'models/productsModel.php';
 include_once 'models/usersModel.php';
 $products=get_products();
-var_dump($_SESSION);
 $user=get_specific_user($_SESSION['email'],$_SESSION['password']);
-//var_dump($products);
-//foreach ($products as $product){
-//    echo '<img src='.$product['image_src'].'>';
-//}
-
-//$product_view=['name','price'];
 ?>
 <html>
 <head>
