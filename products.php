@@ -5,8 +5,10 @@ check_login();
 $title='products';
 include_once 'models/productsModel.php';
 include_once 'models/usersModel.php';
-$products=get_products();
-$user=get_specific_user($_SESSION['email'],$_SESSION['password']);
+$obj_product=new productsModel('product');
+$products=$obj_product->get_products();
+$obj_user=new usersModel('users');
+$user=$obj_user->get_specific_user($_SESSION['email'],$_SESSION['password']);
 ?>
 <html>
 <head>

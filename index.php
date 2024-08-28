@@ -23,7 +23,8 @@ else{
 
 
 include_once 'models/usersModel.php';
-$data = get_users();
+$obj =new usersModel('users');
+$data = $obj->get_users();
 $employee_access = ['username','email','password','type'];
 
 //if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -35,9 +36,10 @@ $employee_access = ['username','email','password','type'];
 //    }
 //}
 
-
+var_dump($_SESSION);
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $data=search_username($_POST['name']);
+    $obj=new usersModel('users');
+    $data=$obj->search_username($_POST['name']);
 }
 
 

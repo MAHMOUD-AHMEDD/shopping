@@ -8,7 +8,8 @@ if(!(isset($_SESSION['id']))){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
      var_dump($_POST);
-     update_user($_POST['username'],$_POST['email'],$_POST['password'],$_POST['type'],$_GET['id']);
+     $obj=new usersModel('users');
+      $obj->update_user($_POST['username'],$_POST['email'],$_POST['password'],$_POST['type'],$_GET['id']);
      header('location:index.php');
 //    if (isset($data_check)){
 //         var_dump($data_check);

@@ -6,7 +6,9 @@ include_once 'guard/check_user_login.php';
 //var_dump($_SESSION);
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // var_dump($_POST);
-    $data_check = get_specific_user($_POST['email'],$_POST['password']);
+    $obj=new usersModel('users');
+    $data_check = $obj->get_specific_user($_POST['email'],$_POST['password']);
+    var_dump($_SESSION);
     if(is_array($data_check)){
         $_SESSION['id'] = $data_check['id'];
         $_SESSION['email'] = $data_check['email'];

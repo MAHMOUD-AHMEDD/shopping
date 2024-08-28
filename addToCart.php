@@ -9,7 +9,8 @@ var_dump($_SESSION);
 
 //include_once 'models/usersModel.php';
 include_once 'models/ordersModel.php';
-add_order($_SESSION['id'],$_GET['product_id']);
-$orders=get_orders();
+$obj=new ordersModel('product');
+$obj->add_order($_SESSION['id'],$_GET['product_id']);
+$orders=$obj->get_orders();
 //var_dump($orders);
 header('location: products.php');

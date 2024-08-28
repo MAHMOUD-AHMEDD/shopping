@@ -6,7 +6,8 @@ include_once 'guard/check_user_login.php';
 // var_dump($_SESSION);
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // var_dump($_POST);
-    $data_check = register($_POST['username'],$_POST['email'],$_POST['password']);
+    $obj=new usersModel('users');
+    $data_check = $obj->register($_POST['username'],$_POST['email'],$_POST['password']);
     // header('location:index.php');
     if (isset($data_check)){
         // var_dump($data_check);

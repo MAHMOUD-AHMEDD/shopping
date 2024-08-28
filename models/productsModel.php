@@ -1,8 +1,11 @@
 <?php
 include_once './helpers/db_connection.php';
-function get_products()
+include_once 'base.php';
+class productsModel extends base
 {
-    $con=connectToDB();
-    $data=$con->query('SELECT * FROM product');
-    return $data->fetchAll();
+    public function get_products()
+    {
+        $this->obj=new base('product');
+        return $this->obj->get_obj();
+    }
 }

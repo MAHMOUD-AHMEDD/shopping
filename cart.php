@@ -4,11 +4,13 @@ include_once 'guard/check_user_login.php';
 check_login();
 $title='cart';
 include_once 'models/ordersModel.php';
+$obj=new ordersModel('orders');
 if($_SESSION['type']==='client') {
-    $orders = displaySpecificUserOrder($_SESSION['id']);
+
+    $orders = $obj->displaySpecificUserOrder($_SESSION['id']);
 }
 else{
-    $orders = displaySpecificUserOrder($_GET['id']);
+    $orders = $obj->displaySpecificUserOrder($_GET['id']);
 }
 //var_dump($orders);
 //var_dump($_SESSION);
